@@ -1,0 +1,30 @@
+{
+  "name": "node-whmcs",
+  "version": "1.0.0",
+  "description": "WHMCS API Client",
+  "author": "Drew Gauderman <drew@dpg.host>",
+  "maintainers": ["maddog986 <drew@dpg.host>"],
+  "main": "./whmcs.js",
+  "scripts": {
+    "start": "nodemon examples/customers.js localhost 8080"
+  },
+  "license": "GPL-3.0-or-later",
+  "keywords": ["whmcs"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maddog986/node-whmcs.git"
+  },
+  "dependencies": {
+    "request": "2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.10"
+  },
+  "bugs": {
+    "url": "https://github.com/maddog986/node-whmcs/issues"
+  },
+  "homepage": "https://github.com/maddog986/node-whmcs#readme",
+  "directories": {
+    "example": "examples"
+  }
+}
