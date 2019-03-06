@@ -1,20 +1,9 @@
 /**
- * node-whmcs
  * Copyright (C) 2019. Drew Gauderman
-
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
-
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
-
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 const request = require('request');
 
@@ -53,9 +42,41 @@ module.exports = class WHMCS {
   }
 
   //get something
-  get(action, opts = {}) {
+  call(action, opts = {}) {
     return this.modem({
       action: action,
+      ...opts
+    });
+  }
+
+  //get something
+  get(action, opts = {}) {
+    return this.modem({
+      action: `Get${action}`,
+      ...opts
+    });
+  }
+
+  //add something, just an alias for the get function but with "Add" appended to the action
+  add(action, opts = {}) {
+    return this.modem({
+      action: `Add${action}`,
+      ...opts
+    });
+  }
+
+  //update something, just an alias for the get function but with "Update" appended to the action
+  update(action, opts = {}) {
+    return this.modem({
+      action: `Update${action}`,,
+      ...opts
+    });
+  }
+
+  //delete something, just an alias for the get function but with "Delete" appended to the action
+  delete(action, opts = {}) {
+    return this.modem({
+      action: `Delete${action}`,,
       ...opts
     });
   }

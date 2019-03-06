@@ -2,8 +2,19 @@
 
 All notable changes to the "node-whmcs" module will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.0.1]
+
+### Added
+
+- Added and changed "call", "get", "add", "update", "delete" calls. Examples added to readme.
+
+### Changed
+
+- License changed to MIT
+
+### Removed
+
+- Removed examples folder.
 
 ## [1.0.0]
 
