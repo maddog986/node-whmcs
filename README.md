@@ -4,7 +4,7 @@ This is an unofficial [WHMCS](https://whmcs.com)'s [API](https://developers.whmc
 
 This module only supports authenticating with API credentials. No one should be implementing API logins with username passwords at this point, its depreciated!
 
-You can test this plugin live at https://codesandbox.io/s/x37v93mwkw
+Test live at https://codesandbox.io/s/github/maddog986/node-whmcs
 
 ## Installation
 
