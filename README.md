@@ -17,6 +17,8 @@ npm install node-whmcs
 First you need to instantiate it.
 
 ```javascript
+const WHMCS = require('node-whmcs');
+
 const whmcsClient = new WHMCS({
   host: 'yourwebsite.com', //dont include http/https.
   identifier: 'api identifier',
