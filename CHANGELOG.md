@@ -2,6 +2,13 @@
 
 All notable changes to the "node-whmcs" module will be documented in this file.
 
+## [1.0.2]
+
+### Changed
+
+- Recoded how records are returned. This is a breaking change. With detailed enpoints such as GetClients, you would get a json return with like json.clients.client = array. Now it just returns the array of clients... unless you pass in "raw: true" option.
+- Moved LICENSE into README.md. Trying to cleanup.
+
 ## [1.0.1]
 
 ### Added

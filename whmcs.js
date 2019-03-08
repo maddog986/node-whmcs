@@ -38,7 +38,29 @@ module.exports = class WHMCS {
       json: true
     };
 
-    return new Promise((res, rej) => request(options, (e, r) => (e ? rej(e) : r.body.error ? rej(r.body.error) : res(r.body))));
+    return new Promise((res, rej) =>
+      request(options, (e, r) => {
+        if (e) return rej(e);
+
+        //whmcs returned an api error
+        if (r.body.error) return rej(r.body.error);
+
+        //generally we dont care about all the other details, we just want the data
+        if (!opts.raw) {
+          //get main keys to figure out how to return the info
+          const keys = Object.keys(r.body);
+          const secondKeys = Object.keys(r.body[keys[keys.length - 1]]);
+
+          //skips to the first row values
+          if (secondKeys.length === 1) {
+            return res(r.body[keys[keys.length - 1]][secondKeys[0]]);
+          }
+        }
+
+        //return the body
+        return res(r.body);
+      })
+    );
   }
 
   //get something
@@ -68,7 +90,7 @@ module.exports = class WHMCS {
   //update something, just an alias for the get function but with "Update" appended to the action
   update(action, opts = {}) {
     return this.modem({
-      action: `Update${action}`,,
+      action: `Update${action}`,
       ...opts
     });
   }
@@ -76,7 +98,7 @@ module.exports = class WHMCS {
   //delete something, just an alias for the get function but with "Delete" appended to the action
   delete(action, opts = {}) {
     return this.modem({
-      action: `Delete${action}`,,
+      action: `Delete${action}`,
       ...opts
     });
   }

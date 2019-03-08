@@ -1,8 +1,8 @@
-const WHMCS = require('../whmcs.js');
-
 if (!process.env.WHMCS_HOST || !process.env.WHMCS_IDENTIFIER || !process.env.WHMCS_SECRET) {
   throw new Error('SETUP YOUR ENVIRONMENT VARIABLES');
 }
+
+const WHMCS = require('../whmcs.js');
 
 const whmcsClient = new WHMCS({
   host: process.env.WHMCS_HOST,
@@ -10,5 +10,10 @@ const whmcsClient = new WHMCS({
   secret: process.env.WHMCS_SECRET
 });
 
-//get single clients
-whmcsClient.get('GetClients').then(response => console.log('clients:', response.clients.client));
+//get 1 client
+whmcsClient
+  .get('Clients', {
+    limitnum: 1
+  })
+  .then(clients => console.log('clients:', clients))
+  .catch(err => console.log('ERROR:', err));
