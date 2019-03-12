@@ -62,10 +62,10 @@ whmcsClient
 whmcsClient
   .call('DomainWhois', {
     domain: 'whmcs.com'
-  }, function(err, response) {
+  }, function(err, res, body) {
     if (err) return console.log('ERROR:', err);
 
-    console.log('domain information:', response)
+    console.log('domain information:', body)
   });
 ```
 

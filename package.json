@@ -17,9 +17,7 @@
   },
   "license": "MIT",
   "main": "./whmcs.js",
-  "scripts": {
-    "start": "nodemon test/index.js localhost 8080"
-  },
+  "scripts": {},
   "keywords": ["whmcs"],
   "dependencies": {
     "request": "2.88.0"
