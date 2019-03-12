@@ -58,13 +58,15 @@ whmcsClient
   .then(response => console.log('client deleted response:', response))
   .catch(err => console.log('ERROR:', err));
 
-//get domain details. see https://developers.whmcs.com/api-reference/domainwhois/
+//get domain details, using callback function. see https://developers.whmcs.com/api-reference/domainwhois/
 whmcsClient
   .call('DomainWhois', {
     domain: 'whmcs.com'
-  })
-  .then(response => console.log('domain information:', response))
-  .catch(err => console.log('ERROR:', err));
+  }, function(err, response) {
+    if (err) return console.log('ERROR:', err);
+
+    console.log('domain information:', response)
+  });
 ```
 
 ## Implemented Functions
