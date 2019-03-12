@@ -2,6 +2,12 @@
 
 All notable changes to the "node-whmcs" module will be documented in this file.
 
+## [1.0.3]
+
+### Added
+
+- You can now pass in a callback function instead of returning a Promise.
+
 ## [1.0.2]
 
 ### Changed

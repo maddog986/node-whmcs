@@ -1,6 +1,6 @@
 {
   "name": "node-whmcs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "WHMCS API Client",
   "author": {
     "name": "Drew Gauderman",
